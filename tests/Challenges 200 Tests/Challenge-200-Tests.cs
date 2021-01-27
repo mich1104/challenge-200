@@ -87,6 +87,18 @@ namespace Challenges_200_Tests
 
         #endregion
 
+        #region 204
+        [TestMethod]
+        public void Test_204_PotatoCount()
+        {
+            Challenge_204 challenge = new();
+            Assert.AreEqual(1, challenge.Potato("Potato-Potahto"));
+            Assert.AreEqual(0, challenge.Potato("Fried-Potahto"));
+            Assert.AreEqual(1, challenge.Potato("Fried-Potato"));
+            Assert.AreEqual(2, challenge.Potato("Potato-Potato"));
+        }
+        #endregion
+
         #region 205
 
         [TestMethod]
