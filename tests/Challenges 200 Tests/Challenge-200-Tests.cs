@@ -1,4 +1,4 @@
-using Challenge_200;
+﻿using Challenge_200;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Challenges_200_Tests
@@ -7,15 +7,33 @@ namespace Challenges_200_Tests
     /// Tests ensuring funtionality of methods from challenge-205
     /// </summary>
     [TestClass]
-    public class Challenge_205_Tests
+    public class Challenge_200_Tests
     {
-        private Challenge_205 challenge;
+        #region 201
+        Challenge_201 challenge_201 = new();
 
-        [TestInitialize]
-        public void Init()
+        [TestMethod]
+        public void TestMasking()
         {
-            challenge = new();
+            /*
+             From the challenge we have the following examples:
+
+            Maskify("4556364607935616") ➞ "############5616"
+            Maskify("64607935616") ➞ "#######5616"
+            Maskify("1") ➞ "1"
+            Maskify("") ➞ ""
+
+             */
+
+            Assert.AreEqual("############5616", challenge_201.Maskify("4556364607935616"));
+            Assert.AreEqual("#######5616", challenge_201.Maskify("64607935616"));
+            Assert.AreEqual("1", challenge_201.Maskify("1"));
+            Assert.AreEqual("", challenge_201.Maskify(""));
         }
+        #endregion
+
+        #region 205
+        private Challenge_205 challenge_205 = new();
 
         [TestMethod]
         public void TestEncode()
@@ -28,7 +46,7 @@ namespace Challenges_200_Tests
             var helloStr = "Hello";
             var helloExpected = new[] { 72, 29, 7, 0, 3 };
 
-            var helloResult = challenge.Encode(helloStr);
+            var helloResult = challenge_205.Encode(helloStr);
 
             CollectionAssert.AreEqual(helloExpected, helloResult);
 
@@ -36,7 +54,7 @@ namespace Challenges_200_Tests
             var hiThereStr = "Hi there!";
             var hiThereExpected = new[] { 72, 33, -73, 84, -12, -3, 13, -13, -68 };
 
-            var hiThereResult = challenge.Encode(hiThereStr);
+            var hiThereResult = challenge_205.Encode(hiThereStr);
 
             CollectionAssert.AreEqual(hiThereExpected, hiThereResult);
 
@@ -44,7 +62,7 @@ namespace Challenges_200_Tests
             var sunshineStr = "Sunshine";
             var sunshineExpected = new[] { 83, 34, -7, 5, -11, 1, 5, -9 };
 
-            var sunshineResult = challenge.Encode(sunshineStr);
+            var sunshineResult = challenge_205.Encode(sunshineStr);
 
             CollectionAssert.AreEqual(sunshineExpected, sunshineResult);
         }
@@ -60,7 +78,7 @@ namespace Challenges_200_Tests
             var helloEncrypted = new[] { 72, 29, 7, 0, 3 };
             var helloExpected = "Hello";
 
-            var helloResult = challenge.Decode(helloEncrypted);
+            var helloResult = challenge_205.Decode(helloEncrypted);
 
             Assert.AreEqual(helloExpected, helloResult);
 
@@ -68,7 +86,7 @@ namespace Challenges_200_Tests
             var hiThereEncrypted = new[] { 72, 33, -73, 84, -12, -3, 13, -13, -68 };
             var hiThereExpected = "Hi there!";
 
-            var hiThereResult = challenge.Decode(hiThereEncrypted);
+            var hiThereResult = challenge_205.Decode(hiThereEncrypted);
 
             Assert.AreEqual(hiThereExpected, hiThereResult);
 
@@ -76,9 +94,10 @@ namespace Challenges_200_Tests
             var sunshineEncrypted = new[] { 83, 34, -7, 5, -11, 1, 5, -9 };
             var sunshineExpected = "Sunshine";
 
-            var sunshineResult = challenge.Decode(sunshineEncrypted);
+            var sunshineResult = challenge_205.Decode(sunshineEncrypted);
 
             Assert.AreEqual(sunshineExpected, sunshineResult);
         }
+        #endregion
     }
 }
