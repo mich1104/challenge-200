@@ -52,6 +52,33 @@ namespace Challenges_200_Tests
         [TestMethod]
         public void TestDecode()
         {
+            // from the example we know the following strings and their encryptions: 
+            //the array [72, 29, 7, 0, 3] should be decrypted to "Hello"
+            //the array [72, 33, -73, 84, -12, -3, 13, -13, -68] should be decrypted to "Hi there!"
+            //the array [83, 34, -7, 5, -11, 1, 5, -9] should be decrypted to "Sunshine"
+
+            var helloEncrypted = new[] { 72, 29, 7, 0, 3 };
+            var helloExpected = "Hello";
+
+            var helloResult = challenge.Decode(helloEncrypted);
+
+            Assert.AreEqual(helloExpected, helloResult);
+
+
+            var hiThereEncrypted = new[] { 72, 33, -73, 84, -12, -3, 13, -13, -68 };
+            var hiThereExpected = "Hi there!";
+
+            var hiThereResult = challenge.Decode(hiThereEncrypted);
+
+            Assert.AreEqual(hiThereExpected, hiThereResult);
+
+
+            var sunshineEncrypted = new[] { 83, 34, -7, 5, -11, 1, 5, -9 };
+            var sunshineExpected = "Sunshine";
+
+            var sunshineResult = challenge.Decode(sunshineEncrypted);
+
+            Assert.AreEqual(sunshineExpected, sunshineResult);
         }
     }
 }
