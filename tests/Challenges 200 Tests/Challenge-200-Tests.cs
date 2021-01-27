@@ -32,11 +32,41 @@ namespace Challenges_200_Tests
         }
         #endregion
 
+        #region 203
+
+        private Challenge_203 challenge_203 = new();
+
+        /*
+         * Implementing a binary search algorithm seems a little excessive when the list is finite, would recommend using a HashSet instead.
+         * Also not going to create my own binary search algorithm but rather use an existing one from a library. 
+         * Another note, why not just return a bool?
+         * 
+         */
+        [TestMethod]
+        public void Test_203()
+        {
+            Assert.AreEqual("yes", challenge_203.IsPrime(3));
+            Assert.AreEqual("yes", challenge_203.IsPrime(7));
+            Assert.AreEqual("yes", challenge_203.IsPrime(11));
+            Assert.AreEqual("yes", challenge_203.IsPrime(67));
+            Assert.AreEqual("yes", challenge_203.IsPrime(83));
+            Assert.AreEqual("yes", challenge_203.IsPrime(97));
+
+            Assert.AreEqual("no", challenge_203.IsPrime(4));
+            Assert.AreEqual("no", challenge_203.IsPrime(9));
+            Assert.AreEqual("no", challenge_203.IsPrime(25));
+            Assert.AreEqual("no", challenge_203.IsPrime(27));
+            Assert.AreEqual("no", challenge_203.IsPrime(56));
+            Assert.AreEqual("no", challenge_203.IsPrime(98));
+        }
+
+        #endregion
+
         #region 205
         private Challenge_205 challenge_205 = new();
 
         [TestMethod]
-        public void TestEncode()
+        public void Test_205_Encode()
         {
             // from the example we know the following strings and their encryptions: 
             //the string "Hello" should be encrypted to[72, 29, 7, 0, 3]
@@ -68,7 +98,7 @@ namespace Challenges_200_Tests
         }
 
         [TestMethod]
-        public void TestDecode()
+        public void Test_205_Decode()
         {
             // from the example we know the following strings and their encryptions: 
             //the array [72, 29, 7, 0, 3] should be decrypted to "Hello"
